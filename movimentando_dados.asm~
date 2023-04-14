@@ -13,4 +13,7 @@ mvi a, 25
 mov m, a
 sta var1
 
+mvi h, 4
+lxi h, ffff
+
 hlt
