@@ -11,6 +11,7 @@ cxsom: EQU 4
 impressora: EQU 5
 usb: EQU 6
 
+__BUF_SIZE: DB 8
 buffer_teclado: DS 8 
 buffer_mouse: DS 8
 buffer_microfone: DS 8
@@ -18,6 +19,7 @@ buffer_monitor: DS 8
 buffer_cxsom: DS 8
 buffer_impressora: DS 8
 buffer_usb: DS 128
+
 
 pos: DB 0
 limite: DB 7

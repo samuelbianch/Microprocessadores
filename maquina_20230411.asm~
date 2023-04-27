@@ -11,7 +11,7 @@ cxsom: EQU 4
 impressora: EQU 5
 usb: EQU 6
 
-buffer_teclado: DS 8
+buffer_teclado: DS 8 
 buffer_mouse: DS 8
 buffer_microfone: DS 8
 buffer_monitor: DS 8
@@ -23,22 +23,20 @@ pos: DB 0
 limite: DB 7
 
 ler_teclado: nop
-	MVI c, 7
+	MVI c, 8
 	MVI b, 0 ;reg contador = pos
+	LXI h, buffer_teclado
 	STA pos
 	repete: nop
 		IN teclado
-		LXI h, buf_teclado
 		MOV m, a
 		LDA pos
-		STA buffer_teclado+B
-		IN B
-		MVI a, 0
+		INR b
+		MOV a, b
 		CMP c
-		JNC repete
+		INX h
+		JC repete
 		RET
-
-
 start: nop
 
 CALL ler_teclado
